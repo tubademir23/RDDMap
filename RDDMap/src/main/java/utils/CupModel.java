@@ -1,4 +1,4 @@
-package myspark.map;
+package utils;
 
 import java.io.Serializable;
 
