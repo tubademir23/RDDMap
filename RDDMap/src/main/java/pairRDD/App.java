@@ -25,7 +25,8 @@ public class App {
 		});
 		Pair_Data.foreach(new VoidFunction<Tuple2<String, Double>>() {
 			public void call(Tuple2<String, Double> tuple2) throws Exception {
-				System.out.println(tuple2);
+				System.out.println("First is: " + tuple2._1 + "\t Total: " + tuple2._2);
+				// System.out.println(tuple2);
 
 			}
 		});
