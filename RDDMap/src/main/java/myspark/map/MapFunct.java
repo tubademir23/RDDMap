@@ -12,7 +12,7 @@ public class MapFunct {
 		// System.setProperty("hadoop.home.dir", "C:\\hadoop-common-2.2.0-bin-master");
 		CupModelMap map = new CupModelMap("local", "Map Func");
 
-		JavaRDD<CupModel> CupModel_Data = map.mapCupModel("WorldCups.csv");
+		JavaRDD<CupModel> CupModel_Data = map.mapCupModel("WorldCups.csv", false);
 
 		JavaRDD<CupModel> Turkey_Data = CupModel_Data.filter(new Function<CupModel, Boolean>() {
 			public Boolean call(CupModel cupModel) throws Exception {
@@ -26,6 +26,7 @@ public class MapFunct {
 				cupModel.toString();
 			}
 		});
+
 		map.getContext().close();
 
 	}

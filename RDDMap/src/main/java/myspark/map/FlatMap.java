@@ -22,6 +22,6 @@ public class FlatMap {
 		});
 		JavaRDD<String> Distinct_Data = Flatmap_Data.distinct();
 		System.out.println("Distinct_Data Count: " + Distinct_Data.count());
-
+		context.close();
 	}
 }

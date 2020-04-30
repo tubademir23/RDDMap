@@ -1,6 +1,7 @@
 package utils;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
@@ -21,12 +22,14 @@ public class CupModelMap implements Serializable {
 		this.context = context;
 	}
 
-	public JavaRDD<CupModel> mapCupModel(String path) {
+	public JavaRDD<CupModel> mapCupModel(String path, boolean out) {
 		JavaRDD<String> String_Data = context.textFile(path);
 
 		JavaRDD<CupModel> CupModel_Data = String_Data.map(new Function<String, CupModel>() {
 			public CupModel call(String line) throws Exception {
-
+				if (out) {
+					System.out.println(line);
+				}
 				String[] split = line.split(",");
 
 				return new CupModel(split[0], split[1], split[2], split[3], split[4], split[5],
@@ -35,8 +38,16 @@ public class CupModelMap implements Serializable {
 
 			}
 		});
+
 		return CupModel_Data;
 
+	}
+
+	public void toStringList(List<CupModel> list) {
+		for (CupModel cupModel : list) {
+			System.out.println(cupModel.toString());
+		}
+		System.out.println(list.size());
 	}
 
 }

@@ -17,7 +17,7 @@ public class App {
 	public static void main(String[] args) {
 		CupModelMap map = new CupModelMap("local", "Map Func");
 
-		JavaRDD<CupModel> CupModel_Data = map.mapCupModel("WorldCups.csv");
+		JavaRDD<CupModel> CupModel_Data = map.mapCupModel("WorldCups.csv", false);
 
 		// this get, first as key and totalparticipiant as value.
 		// then group by key so, iterable values

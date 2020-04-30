@@ -21,5 +21,6 @@ public class Sample {
 
 			}
 		});
+		context.close();
 	}
 }
